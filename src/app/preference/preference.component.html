@@ -1,0 +1,127 @@
+<!-- {{ this.settingForm.value | json }} *ngIf="isLoading"-->
+
+<form cForm [formGroup]="settingForm" novalidate (ngSubmit)="submit(settingForm.value)">
+  <div class="w-full pl-5 pr-12 mt-6 pb-5 h-full">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+    <mat-card
+      class="settings-card w-full flex h-full shadow-2xl drop-shadow-lg"
+    >
+
+
+      <mat-card-header class="flex items-center justify-center mb-3">
+        <mat-card-title class="text-2xl"> Change Settings
+        </mat-card-title>
+       
+      </mat-card-header>
+      <!-- {{ this.settingForm.dirty }} -->
+      <mat-card-content
+        class="w-full mt-6 max-h-full cardContent"
+        style="display: grid"
+      >
+        <div class="w-full flex justify-center">
+          <div class="row mb-3 w-3/4">
+            <div class="pt-3 w-1/4">
+           
+            </div>
+            <div class="flex w-3/4">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label class="text-lg mb-1" >Organization Name </mat-label>
+                <input
+                  type="text"
+                  matInput
+                formControlName="organizationName"
+                  placeholder="Please Enter Organizations Name"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+            <div class="w-full flex justify-center">
+  
+      </div>
+
+        <div class="w-full flex justify-center">
+          <div class="row mb-3 w-3/4">
+            <div class="pt-3 w-1/4 mb-1">
+            </div>
+            <div class="flex w-3/4">
+              <mat-form-field class="w-full" appearance="fill">
+                
+              <mat-label class="text-lg mr-6 ">Organization Address </mat-label>
+                <input
+                  type="text"
+                  formControlName="address"
+                  matInput
+                  placeholder="Please Enter Organizations Address"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full flex justify-center">
+          <div class="row mb-3 w-3/4">
+            <div class="pt-3 w-1/4 mb-1">
+            </div>
+            <div class="flex w-3/4">
+              <mat-form-field class="w-full" appearance="fill">
+                
+              <mat-label class="text-lg mr-6 ">Customers ID Prefix </mat-label>
+                <input
+                  type="text"
+                  formControlName="idPrefix"
+                  matInput
+                  placeholder="Please Enter Prefix For Customers Id"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full flex justify-center mb-6">
+          <div class="row mb-3 w-3/4">
+            <div class="pt-3 w-1/4">
+            </div>
+            <div class="flex w-3/4">
+              <mat-form-field class="w-full" appearance="fill">
+                
+              <mat-label class="text-lg mb-1">Phone </mat-label>
+                <span matPrefix>&nbsp;+251 &nbsp;</span>
+                <input
+                  formControlName="phone"
+                  type="tel"
+                  matInput
+                  placeholder="911-123-4567"
+                />
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+        <hr />
+
+      </mat-card-content>
+      <mat-card-actions
+        class="w-full flex justify-center items-center mt-3 mb-6 "
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          
+          class="flex "
+        >
+          <div class="flex">
+            <div class="relative bottom-[1px] mr-1" *ngIf="isSubmitting">
+              <img src="/assets/img/menuLoading.svg" alt="" width="20px" />
+            </div>
+            <div>Save Settings</div>
+          </div>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</form>

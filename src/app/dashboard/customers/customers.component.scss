@@ -1,0 +1,152 @@
+table {
+    width: 100%;
+  }
+    
+  .mat-mdc-form-field {
+    font-size: 12px;
+    width: 100%;
+  }
+  
+  mat-header-cell, mat-cell {
+    justify-content: left;
+    text-align: center !important;
+
+  }
+td, th {
+    text-align: left !important;
+    vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+    justify-content: left !important;
+}
+  th {
+    background-color: rgb(245, 245, 245) !important;
+    
+  }
+  
+  .tableContent {
+    height: calc(100vh - 350px);
+    max-width: 100%;
+    overflow: auto;
+  }
+ 
+  .mat-column-id {
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 30px !important;
+  
+  }
+
+  .mat-column-phone {
+    text-align: left !important;
+    vertical-align: middle !important;
+  }
+
+  .approveBtn{
+    background-color: rgb(6, 179, 6)!important;
+    color: white!important;
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+    font-size: 14px!important;
+    margin-top: 15px!important;
+    margin-bottom: 15px!important; 
+}
+
+  .mat-column-select {
+    border-right: 1px solid rgb(230, 230, 238) !important;
+    white-space: unset !important;
+    flex: 0 0 5% !important;
+    max-width: 40px !important;
+    white-space: unset !important;
+    padding:0px!important;
+    
+  
+  }
+
+  .addBtn:disabled {
+    background-color: #929292 !important;
+
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  @media only screen and (max-width: 695px) {
+   
+    
+    .searchSection {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+    }
+    .pageTitleSection,
+    .searchTab {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .mat-column-email {
+      display: none!important;
+    
+    }
+    .mat-column-gender {
+      display: none!important;
+    
+    }
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    background-color: aliceblue;
+    cursor: pointer;
+  }
+
+
+  .addBtn {
+    background-color: #31b3ff !important;
+    color: white !important;
+  }
+
+
+  .mat-mdc-form-field-infix{
+    display: flex !important;
+
+  }
+
+  #error{
+    display:none;
+  }
+  
+  
+//   .mat-form-field-appearance-outline .mat-form-field-infix {
+//     padding: 10px;
+//  }
+//  .mat-form-field-infix {
+//       padding:0;
+//       border-top: 0;
+//  }
+ 
+ 
+//  .mat-form-field-label-wrapper {
+//      top: -0.84375em;
+//      padding-top: 0.84375em;
+//  }
+
+.customers .mat-mdc-form-field-infix{
+  min-height:36px!important;
+  padding-top:5px!important;
+  padding-bottom:5px!important;
+ }
+
+ .customers .mat-mdc-text-field-wrapper{
+  height:36px!important;
+  // padding-top:5px!important;
+  // padding-bottom:5px!important;
+ }

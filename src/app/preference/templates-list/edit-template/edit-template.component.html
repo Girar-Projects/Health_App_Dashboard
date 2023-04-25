@@ -1,0 +1,53 @@
+<form cForm [formGroup]="templateForm" novalidate (ngSubmit)="submit(templateForm.value)">
+ 
+  <h2 mat-dialog-title>Edit template</h2>
+  <mat-dialog-content class="mat-typography">
+       <div class="w-full">
+      <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Template Title</mat-label>
+          <input matInput formControlName="templateTitle" placeholder="Enter Template Title Here..." #templateTitle [value]="this.template.templateTitle" required>
+      
+          <mat-error class="float-right letter "
+          *ngIf="
+            templateForm.controls['templateTitle'].hasError('required') && templateForm.controls['templateTitle'].touched
+          "
+        >
+         Template Title is <strong>required</strong>
+        </mat-error>
+        
+        </mat-form-field>
+        
+      </div>
+      <editor
+      formControlName="templateBody"
+      [init]="{
+        base_url: '/tinymce',
+        suffix: '.min',       
+        height: 500,
+        menubar: false,
+        plugins: [
+          'advlist autolink lists link image charmap print preview anchor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar:
+          'undo redo | formatselect | bold italic backcolor | \
+          alignleft aligncenter alignright alignjustify | \
+          bullist numlist outdent indent | removeformat | '
+      }"
+    ></editor>
+  
+    <mat-error class="float-right letter "
+    *ngIf="
+      templateForm.controls['templateBody'].hasError('required') && templateForm.controls['templateBody'].touched
+    "
+  >
+  Template Body  is <strong>required</strong>
+  </mat-error>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button type="submit" color="primary"  [disabled]="!templateForm.valid">Edit Template</button>
+  </mat-dialog-actions>
+  </form>

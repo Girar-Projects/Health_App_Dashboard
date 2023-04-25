@@ -1,0 +1,46 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<h2 mat-dialog-title>Send Message</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>You Have Selected {{this.data.customers.length}} Customers . <button mat-button  color="primary" class="shadow-md drop-shadow-lg" (click)="openDialog()"> <mat-icon matSuffix>person</mat-icon> View</button>
+</h3>
+
+  <mat-form-field class="w-full">
+    <mat-label> Select Message Template  </mat-label>
+    <mat-select
+    #template
+      placeholder="Select Message Template"
+      formControlName="template"
+    >
+      <mat-option *ngFor="let options of templateData" [value]="options?.templateTitle">
+         {{options?.templateTitle}} </mat-option>
+      <mat-option value="_custom" selected > Custom... </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+
+  <editor
+  *ngIf="template.value=='_custom'"
+  formControlName="templateBody"
+  [init]="{
+    base_url: '/tinymce',
+    suffix: '.min',       
+    height: 500,
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | '
+  }"
+></editor>
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!template.value" mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial>Send</button>
+</mat-dialog-actions>

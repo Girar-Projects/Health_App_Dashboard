@@ -1,0 +1,14 @@
+:host {
+  .legend {
+    small {
+      font-size: x-small;
+    }
+  }
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

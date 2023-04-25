@@ -1,0 +1,40 @@
+<form cForm [formGroup]="phaseForm" novalidate (ngSubmit)="submit(phaseForm.value)">
+ 
+  <h2 mat-dialog-title>Edit Status</h2>
+  <mat-dialog-content class="mat-typography">
+       <div class="w-full">
+      <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Status Title</mat-label>
+          <input matInput formControlName="phaseTitle" placeholder="Enter Phase Title Here..." #phaseTitle required>
+      
+          <mat-error class="float-right letter "
+          *ngIf="
+            phaseForm.controls['phaseTitle'].hasError('required') && phaseForm.controls['phaseTitle'].touched
+          "
+        >
+         Status Title is <strong>required</strong>
+        </mat-error>
+        
+        </mat-form-field>
+        
+      </div>
+        <div class="w-full mt-1" >
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Status Description</mat-label>
+          <textarea matInput formControlName="desc" placeholder="Enter Status Description Here..." #desc required></textarea>
+          <mat-error class="float-right letter "
+          *ngIf="
+            phaseForm.controls['desc'].hasError('required') && phaseForm.controls['desc'].touched
+          "
+        >
+        Status Description is <strong>required</strong>
+        </mat-error>
+        </mat-form-field>
+      </div>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button type="submit" color="primary" cdkFocusInitial [disabled]="!phaseForm.valid">Edit Status</button>
+  </mat-dialog-actions>
+  </form>

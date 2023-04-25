@@ -1,0 +1,24 @@
+th {
+    background-color: rgb(245, 245, 245) !important;
+    
+  }
+
+  .approveBtn{
+    background-color: green!important;
+    color: white!important;
+    margin-left: 25px;
+}
+
+.rejectBtn{
+    background-color: red!important;
+    color: white!important;
+    margin-left: 25px;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
