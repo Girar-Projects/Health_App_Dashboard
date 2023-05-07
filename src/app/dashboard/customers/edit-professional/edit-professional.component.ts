@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
-  selector: 'app-edit-customer',
-  templateUrl: './edit-customer.component.html',
-  styleUrls: ['./edit-customer.component.scss']
+  selector: 'app-edit-professional',
+  templateUrl: './edit-professional.component.html',
+  styleUrls: ['./edit-professional.component.scss']
 })
-export class EditCustomerComponent {
+export class EditProfessionalComponent {
 
   isSubmitting=false;
 
@@ -47,7 +47,7 @@ status=false;
   public dialog: MatDialog,
   public router:Router,
    public toaster: ToasterService,
-   public dialogRef: MatDialogRef<EditCustomerComponent >
+   public dialogRef: MatDialogRef<EditProfessionalComponent >
 ) {
  
 }

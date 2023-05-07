@@ -1,0 +1,62 @@
+.full-width {
+
+    width:100%;
+  }
+  
+  .register-card {
+    min-width: 100%;
+    padding: 0px 25px 25px;
+  }
+  
+  .mat-radio-button {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 150px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  
+  @media only screen and (max-width: 695px) {
+    .cardContent {
+      display:flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .leftInputSection{
+      width:90%;
+    }
+    
+    .rightInputSection{
+      width:90%;
+      margin-left:0px;
+  }
+  input{
+    width: 100%;
+  }
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

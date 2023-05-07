@@ -12,11 +12,11 @@ import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-new-customer',
-  templateUrl: './new-customer.component.html',
-  styleUrls: ['./new-customer.component.scss']
+  templateUrl: './new-professional.component.html',
+  styleUrls: ['./new-professional.component.scss']
 })
 
-export class NewCustomerComponent {
+export class NewProfessionalComponent {
   isSubmitting=false;
 
 

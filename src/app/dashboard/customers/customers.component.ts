@@ -11,7 +11,7 @@ import { SendMessageComponent } from './send-message/send-message.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import * as _ from 'lodash';
 import { SetAppointmentComponent } from './set-appointment/set-appointment.component';
-import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { EditProfessionalComponent } from './edit-professional/edit-professional.component';
 
 export interface UserData {
   id: string;
@@ -361,7 +361,7 @@ export class CustomersComponent implements AfterViewInit, OnInit {
     });
   }
   editCustomer(data: any) {
-    const dialogRef = this.dialog.open(EditCustomerComponent, {
+    const dialogRef = this.dialog.open(EditProfessionalComponent, {
       data: { customer: data },
       maxHeight: '90vh',
       minHeight: '30vh',

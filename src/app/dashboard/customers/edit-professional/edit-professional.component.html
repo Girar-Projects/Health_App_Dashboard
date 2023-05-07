@@ -1,0 +1,221 @@
+
+  <form [formGroup]="customerRegisterForm" novalidate (ngSubmit)="onSubmit(customerRegisterForm.value)">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<h2 mat-dialog-title>Edit Customer Information</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="w-full mt-2">
+    <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>First Name </mat-label>
+          <input
+            matInput
+            placeholder="First name"
+            formControlName="firstName"
+            
+          />
+           <mat-error class="float-right letter  " class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['firstName'].hasError('required')
+            "
+          >
+            First name is <strong>required</strong>
+          </mat-error>
+          <mat-error
+          class="float-right letter "
+          *ngIf="customerRegisterForm.controls['firstName'].hasError('pattern')"
+        >
+          First name can only contain <strong>letters</strong>
+        </mat-error>
+        </mat-form-field>
+      </div>
+    </div> 
+  
+    <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Last Name </mat-label>
+          <input
+            matInput
+            placeholder="Last name"
+            formControlName="lastName"
+          
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['lastName'].hasError('required')
+            "
+          >
+            Last name is <strong>required</strong>
+          </mat-error>
+          <mat-error
+          class="float-right letter "
+          *ngIf="customerRegisterForm.controls['lastName'].hasError('pattern')"
+        >
+        Last name can only contain <strong>letters</strong>
+        </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label> Gender  </mat-label>
+            <mat-select
+              placeholder="Select Gender"
+              formControlName="gender"
+              
+            >
+              <mat-option value="Male" > Male  </mat-option>
+              <mat-option value="Female"> Female  </mat-option>
+            </mat-select>
+             <mat-error class="float-right letter  "
+              *ngIf="
+                customerRegisterForm.controls['gender'].hasError('required')
+              "
+            >
+              Gender is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    <div class="row mb-3">
+      <div class="col">
+      
+        <mat-form-field class="full-width">
+            <mat-label>Phone </mat-label>
+            <span matPrefix>&nbsp;&nbsp;+251 &nbsp;  </span>
+            <input
+              type="tel"
+              maxlength="9"
+              formControlName="phone"
+              matInput
+              placeholder="911-123-4567"
+              
+            
+            />
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error
+              class="float-right letter  "
+              *ngIf="customerRegisterForm.controls['phone'].hasError('required')"
+            >
+              Phone Number is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              class="float-right letter"
+              *ngIf="
+              customerRegisterForm.controls['phone'].hasError('minlength') ||
+                (customerRegisterForm.controls['phone'].hasError('maxlength') &&
+                  !customerRegisterForm.controls['phone'].hasError('pattern'))
+              "
+            >
+              Phone Number length is
+              <strong>invalid</strong>
+            </mat-error>
+            <mat-error
+              class="float-right letter  "
+              *ngIf="customerRegisterForm.controls['phone'].hasError('pattern')"
+            >
+              Phone Number can only Contain
+              <strong>Numbers </strong>
+            </mat-error>
+          </mat-form-field>
+      </div>
+    </div>
+
+ <div class="row mb-3">
+      <div class="col">
+      
+        <mat-form-field class="full-width">
+            <mat-label>Email (Optional)</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Ex. someone@example.com"
+              
+       
+            />
+            <mat-error
+              class="float-right letter  "
+              *ngIf="customerRegisterForm.controls['email'].hasError('email')"
+            >
+              Email must be <strong>valid</strong>
+            </mat-error>
+          </mat-form-field>
+      </div>
+    </div>
+  
+  </div>
+  <!-- <div class="w-full md:flex mb-1">
+    <div class="w-full md:w-1/2">  <h3>Customer Name  : <b>{{this.data.customer.firstName+' '+this.data.customer.lastName}} </b> . </h3>
+    </div>
+    <div class="w-full md:w-1/2"><h3>Customer Phone : <b>{{'+251- '+this.data.customer.phone}} </b> . </h3>
+    </div>
+  </div> -->
+  <hr >
+  
+  <mat-form-field class="w-full mt-2" >
+    <mat-label> Select A Status </mat-label>
+    <mat-select formControlName="phase" [disabled]="isLoading" #phase [placeholder]="(this.data.customer.phase!='-')?this.data.customer.phase:'Select A Status'" >
+    
+      <mat-option
+          
+        *ngFor="let options of phases"
+        [value]="options?.phaseTitle"
+        
+      >
+        {{ options?.phaseTitle }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Choose appointment date</mat-label>
+    <input matInput [matDatepicker]="datepicker" [value]="this.data.customer?.date" #appointmentDate formControlName="date"/>
+    <mat-hint *ngIf="this.data.customer?.date=='-'">MM/DD/YYYY</mat-hint>
+    <mat-hint *ngIf="this.data.customer?.date!='-'"><b> Previously Selected Date: {{this.data.customer?.date}}</b></mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="datepicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #datepicker>
+      <mat-datepicker-actions>
+        <button mat-button matDatepickerCancel>Cancel</button>
+        <button mat-raised-button color="primary" matDatepickerApply>
+          Apply
+        </button>
+      </mat-datepicker-actions>
+    </mat-datepicker>
+  </mat-form-field>
+
+
+        
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="w-full flex justify-between" style="display:flex!important;justify-content:space-between!important;">
+  <div class="ml-0 md:ml-4">
+  <button mat-raised-button color="warn"  (click)="status=!status" *ngIf="!status">! Fraud</button>
+  <button mat-raised-button class="bg-green-300" style="background-color: green!important;color:white!important;"  (click)="status=!status" *ngIf="status">Legit</button>
+</div>
+  <div >
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+  type="submit"
+   
+    mat-raised-button
+    color="primary"
+    >
+    <div class="flex">
+      <div class="relative bottom-[1px] mr-1" *ngIf="isSubmitting">
+        <img src="/assets/img/menuLoading.svg" alt="" width="20px" />
+      </div>
+      <div>Update</div>
+    </div>
+  </button>
+</div>
+</mat-dialog-actions>
+</form>
