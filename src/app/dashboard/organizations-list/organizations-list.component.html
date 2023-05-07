@@ -110,15 +110,69 @@
           </ng-container>
   
           <!-- Progress Column -->
+
+          <ng-container matColumnDef="orgName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Organization Name</th>
+            <td mat-cell *matCellDef="let row">{{ row.orgName?row.orgName:'-' }}</td>
+          </ng-container>
+
+
+
+          <ng-container matColumnDef="orgType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Type of Organization</th>
+            <td mat-cell *matCellDef="let row">{{ row.orgType?row.orgType:'-' }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="typeOfProfessional">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Type Of Professionals</th>
+            <td mat-cell *matCellDef="let row">{{ row.typeOfProfessional?row.typeOfProfessional:'-' }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender Needed</th>
+            <td mat-cell *matCellDef="let row">{{ row.gender?row.gender:'-' }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="experience">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Year of Experience</th>
+            <td mat-cell *matCellDef="let row">{{ row.experience?row.experience:'-' }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="totalNeeded">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Needed # </th>
+            <td mat-cell *matCellDef="let row">{{ row.totalNeeded?row.totalNeeded:'-' }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="tinNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tin Number</th>
+            <td mat-cell *matCellDef="let row">{{ row.tinNumber?row.tinNumber:'-' }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="workPlace">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Place of Work</th>
+            <td mat-cell *matCellDef="let row">{{ row.workPlace?row.workPlace:'-' }}</td>
+          </ng-container>
+
+
+  
           <ng-container matColumnDef="fullName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact Person</th>
             <td mat-cell *matCellDef="let row">{{ row.fullName }}</td>
           </ng-container>
-  
           <!-- Fruit Column -->
           <ng-container matColumnDef="phone">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone #</th>
             <td mat-cell *matCellDef="let row">{{ '+251'+row.phone }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email </th>
+            <td mat-cell *matCellDef="let row">{{ row.email?row.email:'-' }}</td>
           </ng-container>
   
           <ng-container matColumnDef="status">
@@ -142,7 +196,7 @@
               dark:hover:bg-green-700 dark:focus:ring-green-800" (click)="setAppointment(row)"><mat-icon matSuffix
               (click)="clearDate(phaseSelector)" style="font-size:18px!important;margin-right:2px" class="hidden md:block relative top-[3px]">
                 event_available
-                </mat-icon>Set Appt</button>
+                </mat-icon>Assign</button>
   
                 <button type="button" class="mr-1 focus:outline-none text-white bg-sky-500 hover:bg-sky-600
                focus:ring-2 focus:ring-sky-200 font-medium rounded-lg text-sm px-3 md:px-5
@@ -159,8 +213,8 @@
   
   
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns" (dblclick)="editCustomer(row)"></tr>
-  
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" ></tr>
+          <!-- (dblclick)="editCustomer(row)" ^^^^ -->
           <!-- Row shown when there is no matching data. -->
           <tr class="mat-row test" *matNoDataRow>
             <td class="mat-cell " colspan="4" rowspan="8">

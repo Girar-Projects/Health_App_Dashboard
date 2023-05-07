@@ -34,10 +34,17 @@ export class OrganizationsListComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [
     'select',
     'id',
-    'fullName',
+    'orgName',
+    'orgType',
+    'typeOfProfessional',
+    'gender',
+    'workPlace',
+    'experience',
+    'tinNumber',
+    'email',
     'phone',
-    'status',
-    'date',
+    'fullName',
+    'totalNeeded',
     'actions'
   ];
 
@@ -99,7 +106,7 @@ export class OrganizationsListComponent implements AfterViewInit, OnInit {
                   data['settingId'] = docs.id;
                   data['phase'] = doc.data().phase ? doc.data().phase : '-';
                   data['date'] = doc.data().date ? doc.data().date : '-';
-                  data['fullName'] = doc.data().firstName + " " + doc.data().lastName
+                  data['fullName'] = doc.data().fullName; 
                   
 
                   this.customer.push(data);

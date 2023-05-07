@@ -2,13 +2,21 @@
 <h2 mat-dialog-title>Set Appointment</h2>
 <mat-dialog-content class="mat-typography">
   <div class="w-full md:flex mb-1">
-    <div class="w-full md:w-1/2">  <h3>Customer Name  : <b>{{this.data.customer.firstName+' '+this.data.customer.lastName}} </b> . </h3>
+    <div class="w-full md:w-1/2">  <h3>Organization Name  : <b>{{this.data.customer.orgName+' ( '+this.data.customer.fullName+' )  '}} </b> . </h3>
     </div>
     <div class="w-full md:w-1/2"><h3>Customer Phone : <b>{{'+251- '+this.data.customer.phone}} </b> . </h3>
     </div>
   </div>
   <hr >
   
+  <mat-form-field class="w-full mt-2">
+    <textarea matInput 
+       placeholder="Comment" 
+      required
+       #assignProfessionals>
+    </textarea>
+  </mat-form-field> 
+
   <mat-form-field class="w-full mt-2" >
     <mat-label> Select A Status </mat-label>
     <mat-select [disabled]="isLoading" #phase [placeholder]="(this.data.customer.phase!='-')?this.data.customer.phase:'Select A Status'" [value]="this.data.customer.phase">
@@ -21,6 +29,13 @@
       >
         {{ options?.phaseTitle }}
       </mat-option>
+      <mat-option
+          
+      value="Assigned"
+      
+    >
+      Assigned
+    </mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -55,7 +70,7 @@
     mat-raised-button
     [mat-dialog-close]="true"
     color="primary"
-    (click)="setAppointement(this.data.customer,phase.value,appointmentDate.value)"
+    (click)="setAppointement(this.data.customer,phase.value,appointmentDate.value,assignProfessionals.value)"
   >
     Set Appointment
   </button>

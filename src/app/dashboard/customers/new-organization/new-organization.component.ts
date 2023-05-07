@@ -38,6 +38,7 @@ export class NewOrganizationComponent {
         Validators.pattern('^[0-9]*$'),
       ],
     ],
+    status:['pending'],
   });
 
   constructor(
