@@ -121,13 +121,15 @@ export class AuthService {
         let user=result.user
         let dataSent = {
           companyId:compnayId,
-          organizationName: 'ET Reminders',
+          organizationName: 'Hagere Health Consultancy',
           address: '',
           phone: '',
-          count:0
+          count:0,
+          idPrefix:'HA',
+          requestCount:0
         };
     
-        this.firestore.collection('ET_Reminders').doc(compnayId).set(dataSent,{merge: true});
+        this.firestore.collection('Health_App').doc(compnayId).set(dataSent,{merge: true});
 
         this.firestore.collection('users').doc(user?.uid).update({companyId:compnayId}).then(()=>{
           console.log('created');

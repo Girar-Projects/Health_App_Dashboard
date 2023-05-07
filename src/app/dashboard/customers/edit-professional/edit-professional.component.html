@@ -12,7 +12,6 @@
             matInput
             placeholder="First name"
             formControlName="firstName"
-            
           />
            <mat-error class="float-right letter  " class="float-right letter  "
             *ngIf="
@@ -39,7 +38,6 @@
             matInput
             placeholder="Last name"
             formControlName="lastName"
-          
           />
            <mat-error class="float-right letter  "
             *ngIf="
@@ -58,6 +56,7 @@
       </div>
     </div>
 
+
     <div class="row mb-3">
         <div class="col">
           <mat-form-field class="full-width">
@@ -65,9 +64,8 @@
             <mat-select
               placeholder="Select Gender"
               formControlName="gender"
-              
             >
-              <mat-option value="Male" > Male  </mat-option>
+              <mat-option value="Male" selected > Male  </mat-option>
               <mat-option value="Female"> Female  </mat-option>
             </mat-select>
              <mat-error class="float-right letter  "
@@ -80,6 +78,117 @@
           </mat-form-field>
         </div>
       </div>
+      
+      <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Qualification </mat-label>
+          <input
+            matInput
+            placeholder="Qualification (MSc , BSc etc...)"
+            formControlName="qualification"
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['qualification'].hasError('required')
+            "
+          >
+            Qualification is <strong>required</strong>
+          </mat-error>
+       
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Field Of Study </mat-label>
+          <input
+            matInput
+            placeholder="Field Of Study"
+            formControlName="fieldOfStudy"
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['fieldOfStudy'].hasError('required')
+            "
+          >
+          Field Of Study is <strong>required</strong>
+          </mat-error>
+       
+        </mat-form-field>
+      </div>
+    </div>
+
+      <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Experience (in Years)</mat-label>
+          <input
+          type="number"
+          min="0"
+            matInput
+            placeholder="Experience Years"
+            formControlName="experience"
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['experience'].hasError('required')
+            "
+          >
+          Experience is <strong>required</strong>
+          </mat-error>
+       
+        </mat-form-field>
+      </div>
+    </div>
+
+    
+    <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Place Of Work </mat-label>
+          <input
+            matInput
+            placeholder="Place Of Work"
+            formControlName="workPlace"
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['workPlace'].hasError('required')
+            "
+          >
+          Place Of Work is <strong>required</strong>
+          </mat-error>
+       
+        </mat-form-field>
+      </div>
+    </div>
+    
+
+    <div class="row mb-3">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Living Address </mat-label>
+          <input
+            matInput
+            placeholder="Living Address"
+            formControlName="address"
+          />
+           <mat-error class="float-right letter  "
+            *ngIf="
+              customerRegisterForm.controls['address'].hasError('required')
+            "
+          >
+         Address <strong>required</strong>
+          </mat-error>
+       
+        </mat-form-field>
+      </div>
+    </div>
+    
+
 
     <div class="row mb-3">
       <div class="col">
@@ -93,8 +202,6 @@
               formControlName="phone"
               matInput
               placeholder="911-123-4567"
-              
-            
             />
             <mat-icon matSuffix>phone</mat-icon>
             <mat-error
@@ -135,8 +242,6 @@
               matInput
               formControlName="email"
               placeholder="Ex. someone@example.com"
-              
-       
             />
             <mat-error
               class="float-right letter  "

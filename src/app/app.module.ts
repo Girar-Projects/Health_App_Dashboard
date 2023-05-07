@@ -81,9 +81,10 @@ import { SetAppointmentComponent } from './dashboard/customers/set-appointment/s
 import { ProfileDetailComponent } from './pages/profile-detail/profile-detail.component';
 import { EditTemplateComponent } from './preference/templates-list/edit-template/edit-template.component';
 import { EditPhaseComponent } from './preference/phases-list/edit-phase/edit-phase.component';
-// import { EditProfessionalComponent } from './dashboard/customers/edit-professional/edit-professional.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { EditOrganizationComponent } from './dashboard/customers/edit-organization/edit-organization.component';
 import { EditProfessionalComponent } from './dashboard/customers/edit-professional/edit-professional.component';
+import { OrganizationsListComponent } from './dashboard/organizations-list/organizations-list.component';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
@@ -118,6 +119,7 @@ const APP_CONTAINERS = [
     EditPhaseComponent,
     EditProfessionalComponent,
     EditOrganizationComponent,
+    OrganizationsListComponent,
   ],
 
   imports: [
@@ -140,6 +142,7 @@ const APP_CONTAINERS = [
     ReactiveFormsModule,
     SidebarModule,
     FormsModule,
+    LoadingBarRouterModule,
     SharedModule,
     TabsModule,
     ListGroupModule,

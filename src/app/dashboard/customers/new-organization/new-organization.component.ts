@@ -21,8 +21,14 @@ export class NewOrganizationComponent {
 
 
   customerRegisterForm = this.fb.group({
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
+    fullName: [null, Validators.required],
+    orgName: [null, Validators.required],
+    orgType: [null, Validators.required],
+    typeOfProfessional: [null, Validators.required],
+    workPlace: [null, Validators.required],
+    experience: [null, Validators.required],
+    totalNeeded: [null, Validators.required],
+    tinNumber: [null, Validators.required],
     email: [null,  [Validators.email]],
     gender: [null, Validators.required],
     phone: [      '',      [
@@ -63,20 +69,20 @@ export class NewOrganizationComponent {
 
             results.docs.forEach(docs => {
               let settingData:any=docs.data()
-              settingData.count=settingData.count+1
+              settingData.count=settingData.requestCount+1
               data['id']=settingData.count
 
 
-                    this.customerServices.addNewCustomer(data).then(
+                    this.customerServices.addNewRequest(data).then(
         
          async (res) => {
           await this.customerServices.updateSettingData(user.companyId,settingData)
             this.toastr.info(
     
-              'New Customer Registered Successfully.','Operation Completed!'
+              'New Recruit Request submitted Successfully.','Operation Completed!'
             );
             
-            this.route.navigate(['/customers-list']);
+            this.route.navigate(['/professional-list']);
               this.isSubmitting=false;
         }
        

@@ -2,7 +2,7 @@
     <!-- <div class="w-full pl-12 pr-12 mt-1 pb-2"> -->
       <mat-card class=" h-full shadow-2xl mt-3 drop-shadow-2xl bg-white pb-3 pt-1">
         <mat-card-header class="flex items-center justify-center mb-2">
-          <mat-card-title class="text-2xl">Register New Professional</mat-card-title>
+          <mat-card-title class="text-2xl">Register New Professional </mat-card-title>
         </mat-card-header>
         <mat-card-content
           class="w-full mt-2 cardContent h-full shadow-none"
@@ -90,12 +90,12 @@
                   <mat-label>Qualification </mat-label>
                   <input
                     matInput
-                    placeholder="Qualification"
-                    formControlName="lastName"
+                    placeholder="Qualification (MSc , BSc etc...)"
+                    formControlName="qualification"
                   />
                    <mat-error class="float-right letter  "
                     *ngIf="
-                      customerRegisterForm.controls['lastName'].hasError('required')
+                      customerRegisterForm.controls['qualification'].hasError('required')
                     "
                   >
                     Qualification is <strong>required</strong>
@@ -105,18 +105,41 @@
               </div>
             </div>
 
-              <div class="row mb-3">
+            <div class="row mb-3">
               <div class="col">
                 <mat-form-field class="full-width">
-                  <mat-label>Experience </mat-label>
+                  <mat-label>Field Of Study </mat-label>
                   <input
                     matInput
-                    placeholder="Experience"
-                    formControlName="lastName"
+                    placeholder="Field Of Study"
+                    formControlName="fieldOfStudy"
                   />
                    <mat-error class="float-right letter  "
                     *ngIf="
-                      customerRegisterForm.controls['lastName'].hasError('required')
+                      customerRegisterForm.controls['fieldOfStudy'].hasError('required')
+                    "
+                  >
+                  Field Of Study is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+
+              <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Experience (in Years)</mat-label>
+                  <input
+                  type="number"
+                  min="0"
+                    matInput
+                    placeholder="Experience Years"
+                    formControlName="experience"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['experience'].hasError('required')
                     "
                   >
                   Experience is <strong>required</strong>
@@ -134,11 +157,11 @@
                   <input
                     matInput
                     placeholder="Place Of Work"
-                    formControlName="lastName"
+                    formControlName="workPlace"
                   />
                    <mat-error class="float-right letter  "
                     *ngIf="
-                      customerRegisterForm.controls['lastName'].hasError('required')
+                      customerRegisterForm.controls['workPlace'].hasError('required')
                     "
                   >
                   Place Of Work is <strong>required</strong>
@@ -156,11 +179,11 @@
                   <input
                     matInput
                     placeholder="Living Address"
-                    formControlName="lastName"
+                    formControlName="address"
                   />
                    <mat-error class="float-right letter  "
                     *ngIf="
-                      customerRegisterForm.controls['lastName'].hasError('required')
+                      customerRegisterForm.controls['address'].hasError('required')
                     "
                   >
                  Address <strong>required</strong>

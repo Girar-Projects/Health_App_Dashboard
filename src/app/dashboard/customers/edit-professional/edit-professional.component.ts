@@ -23,6 +23,11 @@ export class EditProfessionalComponent {
   customerRegisterForm = this.fb.group({
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
+    qualification: [null, Validators.required],
+    fieldOfStudy: [null, Validators.required],
+    experience: [null, Validators.required],
+    workPlace: [null, Validators.required],
+    address: [null, Validators.required],
     email: [null,  [Validators.email]],
     gender: [null, Validators.required],
     phone: [      '',      [
@@ -96,6 +101,14 @@ this.customerRegisterForm.controls.firstName.setValue(this.data.customer.firstNa
 this.customerRegisterForm.controls.lastName.setValue(this.data.customer.lastName)
 this.customerRegisterForm.controls.gender.setValue(this.data.customer.gender)
 this.customerRegisterForm.controls.phone.setValue(this.data.customer.phone)
+
+this.customerRegisterForm.controls.qualification.setValue(this.data.customer.qualification)
+this.customerRegisterForm.controls.experience.setValue(this.data.customer.experience)
+this.customerRegisterForm.controls.workPlace.setValue(this.data.customer.workPlace)
+this.customerRegisterForm.controls.fieldOfStudy.setValue(this.data.customer.fieldOfStudy)
+this.customerRegisterForm.controls.address.setValue(this.data.customer.address)
+
+
 this.customerRegisterForm.controls.email.setValue(this.data.customer?.email)
 this.customerRegisterForm.controls.phase.setValue(this.data.customer?.phase)
 this.customerRegisterForm.controls.date.setValue(this.data.customer?.date)
@@ -132,7 +145,7 @@ onSubmit(customer:any){
           
               
               this.router.navigate(['/']).then(()=>{
-                this.router.navigate(['/customers-list'])
+                this.router.navigate(['/professional-list'])
               });
             }).catch((error)=>{
               console.log(error)

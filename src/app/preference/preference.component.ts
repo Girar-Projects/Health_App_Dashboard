@@ -73,7 +73,7 @@ export class PreferenceComponent {
               'Settings Have Been Updated Successfully.','Operation Completed!'
             );
             
-            this.router.navigate(['/customers-list']);
+            this.router.navigate(['/professional-list']);
               this.isSubmitting=false;
         }
        

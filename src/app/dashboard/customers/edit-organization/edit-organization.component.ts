@@ -132,7 +132,7 @@ onSubmit(customer:any){
           
               
               this.router.navigate(['/']).then(()=>{
-                this.router.navigate(['/customers-list'])
+                this.router.navigate(['/professional-list'])
               });
             }).catch((error)=>{
               console.log(error)

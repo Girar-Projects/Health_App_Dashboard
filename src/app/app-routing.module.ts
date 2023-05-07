@@ -17,6 +17,7 @@ import { AddTemplateComponent } from './preference/templates-list/add-template/a
 import { AddPhaseComponent } from './preference/phases-list/add-phase/add-phase.component';
 import { PhasesListComponent } from './preference/phases-list/phases-list.component';
 import { PreferenceComponent } from './preference/preference.component';
+import { OrganizationsListComponent } from './dashboard/organizations-list/organizations-list.component';
 
 const routes: Routes = [
   {
@@ -40,8 +41,12 @@ const routes: Routes = [
         component: PreferenceComponent,canActivate: [AuthGuard],
       },
       {
-        path: 'customers-list',
+        path: 'professional-list',
         component: CustomersComponent,canActivate: [AuthGuard],
+      },
+      {
+        path: 'recruiters-list',
+        component: OrganizationsListComponent,canActivate: [AuthGuard],
       },
       {
         path: 'add-professional',

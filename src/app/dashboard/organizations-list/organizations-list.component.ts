@@ -7,11 +7,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { CustomersService } from 'src/app/shared/services/customers.service';
 import { MatDialog } from '@angular/material/dialog';
-import { SendMessageComponent } from './send-message/send-message.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import * as _ from 'lodash';
-import { SetAppointmentComponent } from './set-appointment/set-appointment.component';
-import { EditProfessionalComponent } from './edit-professional/edit-professional.component';
+import { SendMessageComponent } from '../customers/send-message/send-message.component';
+import { EditProfessionalComponent } from '../customers/edit-professional/edit-professional.component';
+import { SetAppointmentComponent } from '../customers/set-appointment/set-appointment.component';
 
 export interface UserData {
   id: string;
@@ -25,24 +25,20 @@ export interface UserData {
 
 
 @Component({
-  selector: 'app-customers',
-  styleUrls: ['customers.component.scss'],
-  templateUrl: 'customers.component.html',
+  selector: 'app-organizations-list',
+  templateUrl: './organizations-list.component.html',
+  styleUrls: ['./organizations-list.component.scss'],
   encapsulation:ViewEncapsulation.None
 })
-export class CustomersComponent implements AfterViewInit, OnInit {
+export class OrganizationsListComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [
     'select',
     'id',
     'fullName',
     'phone',
-    'gender',
-    'qualification',
-    'fieldOfStudy',
-    'experience',
-    'workPlace',
-    'address',
-    'email'
+    'status',
+    'date',
+    'actions'
   ];
 
   range = new FormGroup({
@@ -94,7 +90,7 @@ export class CustomersComponent implements AfterViewInit, OnInit {
             results.docs.forEach(docs => {
 
               this.settings = docs.data()
-              this.customerServices.getCustomers(docs.id).subscribe((res) => {
+              this.customerServices.getRequests(docs.id).subscribe((res) => {
                 res.docs.forEach((doc: any) => {
                   let data: any = doc.data()
 
