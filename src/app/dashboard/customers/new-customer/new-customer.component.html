@@ -2,7 +2,7 @@
     <!-- <div class="w-full pl-12 pr-12 mt-1 pb-2"> -->
       <mat-card class=" h-full shadow-2xl mt-3 drop-shadow-2xl bg-white pb-3 pt-1">
         <mat-card-header class="flex items-center justify-center mb-2">
-          <mat-card-title class="text-2xl">Register New Customer</mat-card-title>
+          <mat-card-title class="text-2xl">Register New Professional</mat-card-title>
         </mat-card-header>
         <mat-card-content
           class="w-full mt-2 cardContent h-full shadow-none"
@@ -61,6 +61,7 @@
               </div>
             </div>
 
+
             <div class="row mb-3">
                 <div class="col">
                   <mat-form-field class="full-width">
@@ -82,6 +83,94 @@
                   </mat-form-field>
                 </div>
               </div>
+              
+              <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Qualification </mat-label>
+                  <input
+                    matInput
+                    placeholder="Qualification"
+                    formControlName="lastName"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['lastName'].hasError('required')
+                    "
+                  >
+                    Qualification is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+
+              <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Experience </mat-label>
+                  <input
+                    matInput
+                    placeholder="Experience"
+                    formControlName="lastName"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['lastName'].hasError('required')
+                    "
+                  >
+                  Experience is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+
+            
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Place Of Work </mat-label>
+                  <input
+                    matInput
+                    placeholder="Place Of Work"
+                    formControlName="lastName"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['lastName'].hasError('required')
+                    "
+                  >
+                  Place Of Work is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+            
+
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Living Address </mat-label>
+                  <input
+                    matInput
+                    placeholder="Living Address"
+                    formControlName="lastName"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['lastName'].hasError('required')
+                    "
+                  >
+                 Address <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+            
+
 
             <div class="row mb-3">
               <div class="col">
@@ -156,7 +245,7 @@
               <div class="relative bottom-[1px] mr-1" *ngIf="isSubmitting">
                 <img src="/assets/img/menuLoading.svg" alt="" width="20px" />
               </div>
-              <div>Add Contact</div>
+              <div>Add professional</div>
             </div>
           </button>
         </mat-card-actions>
