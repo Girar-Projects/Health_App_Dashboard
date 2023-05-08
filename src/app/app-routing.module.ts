@@ -10,12 +10,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './pages/forget-password/forget-password.component';
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { CustomersComponent } from './dashboard/customers/customers.component';
-import { NewCustomerComponent } from './dashboard/customers/new-customer/new-customer.component';
+import { NewProfessionalComponent } from './dashboard/customers/new-professional/new-professional.component';
+import { NewOrganizationComponent } from './dashboard/customers/new-organization/new-organization.component';
 import { TemplatesListComponent } from './preference/templates-list/templates-list.component';
 import { AddTemplateComponent } from './preference/templates-list/add-template/add-template.component';
 import { AddPhaseComponent } from './preference/phases-list/add-phase/add-phase.component';
 import { PhasesListComponent } from './preference/phases-list/phases-list.component';
 import { PreferenceComponent } from './preference/preference.component';
+import { OrganizationsListComponent } from './dashboard/organizations-list/organizations-list.component';
 
 const routes: Routes = [
   {
@@ -39,12 +41,20 @@ const routes: Routes = [
         component: PreferenceComponent,canActivate: [AuthGuard],
       },
       {
-        path: 'customers-list',
+        path: 'professional-list',
         component: CustomersComponent,canActivate: [AuthGuard],
       },
       {
-        path: 'add-customer',
-        component: NewCustomerComponent,canActivate: [AuthGuard],
+        path: 'recruiters-list',
+        component: OrganizationsListComponent,canActivate: [AuthGuard],
+      },
+      {
+        path: 'add-professional',
+        component: NewProfessionalComponent,canActivate: [AuthGuard],
+      },
+      {
+        path: 'add-recruiter',
+        component: NewOrganizationComponent,canActivate: [AuthGuard],
       },
       {
         path: 'manage-templates',

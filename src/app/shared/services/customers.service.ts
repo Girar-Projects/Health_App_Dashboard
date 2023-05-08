@@ -25,7 +25,7 @@ export class CustomersService implements OnInit {
   
             if (res.docs.length == 0) {
   
-              console.log("THe REMINDERS SETTING IS MISSING FOR THIS ACCOUNT!")
+              console.log("The App SETTING IS MISSING FOR THIS ACCOUNT!")
               this.initialFetch()
   
             } else {
@@ -50,7 +50,7 @@ export class CustomersService implements OnInit {
 
     this.authService.castSetting.subscribe((result) => {
       this.settingData = result;
-      this.path = 'ET_Reminders/' + this.settingData.companyId + '/';
+      this.path = 'Health_App/' + this.settingData.companyId + '/';
 
 
 
@@ -73,7 +73,7 @@ export class CustomersService implements OnInit {
   
             if (res.docs.length == 0) {
   
-              console.log("THe REMINDERS SETTING IS MISSING FOR THIS ACCOUNT!")
+              console.log("The App SETTING IS MISSING FOR THIS ACCOUNT!")
               this.initialFetch()
             } else {
               res.docs.forEach(doc => {
@@ -96,7 +96,7 @@ export class CustomersService implements OnInit {
 
     this.authService.castSetting.subscribe((result) => {
       this.settingData = result;
-      this.path = 'ET_Reminders/' + this.settingData.companyId + '/';
+      this.path = 'Health_App/' + this.settingData.companyId + '/';
 
 
 
@@ -118,23 +118,31 @@ export class CustomersService implements OnInit {
   }
 
   updateSettingData(settingId:any,data:any){
-    return this.firestore.collection("ET_Reminders").doc(settingId).update(data);
+    return this.firestore.collection("Health_App").doc(settingId).update(data);
 
   }
 
 
 
   getCustomers(id: any) {
-    return this.firestore.collection("ET_Reminders/" + id + "/Customers").get();
+    return this.firestore.collection("Health_App/" + id + "/Professionals").get();
   }
 
+  getRequests(id: any) {
+    return this.firestore.collection("Health_App/" + id + "/Requests").get();
+  }
 
   addNewCustomer(data: any) {
     let dataSent=data
     console.log('THis setting data', this.settingData.companyId);
-    return this.firestore.collection("ET_Reminders/" + this.settingData.companyId + '/Customers').add(dataSent);
+    return this.firestore.collection("Health_App/" + this.settingData.companyId + '/Professionals').add(dataSent);
   }
 
+addNewRequest(data: any) {
+    let dataSent=data
+    console.log('THis setting data', this.settingData.companyId);
+    return this.firestore.collection("Health_App/" + this.settingData.companyId + '/Requests').add(dataSent);
+  }
 
   getSingleCustomer(id: any) {
     return this.firestore.collection('users').doc(id).get();
@@ -142,7 +150,7 @@ export class CustomersService implements OnInit {
   }
 
   updateMember(settingId: any, id: any, data: any) {
-    return this.firestore.collection("ET_Reminders/" + settingId + "/Customers").doc(id).update(data);
+    return this.firestore.collection("Health_App/" + settingId + "/Professionals").doc(id).update(data);
   }
 
 
@@ -153,7 +161,7 @@ export class CustomersService implements OnInit {
  
 
     return this.firestore
-      .collection('ET_Reminders', (ref) => ref.where('companyId', '==', id))
+      .collection('Health_App', (ref) => ref.where('companyId', '==', id))
       .get();
   }
 
@@ -166,44 +174,44 @@ export class CustomersService implements OnInit {
   addNewTemplate(data: any) {
 
     console.log('THis setting data', this.settingData.companyId);
-    return this.firestore.collection("ET_Reminders/" + this.settingData.companyId + '/Templates').add(data);
+    return this.firestore.collection("Health_App/" + this.settingData.companyId + '/Templates').add(data);
   }
 
 
   getTemplates(id: any) {
-    return this.firestore.collection("ET_Reminders/" + id + "/Templates").get();
+    return this.firestore.collection("Health_App/" + id + "/Templates").get();
   }
 
   addNewPhases(data: any) {
 
     console.log('THis setting data', this.settingData.companyId);
-    return this.firestore.collection("ET_Reminders/" + this.settingData.companyId + '/Phases').add(data);
+    return this.firestore.collection("Health_App/" + this.settingData.companyId + '/Phases').add(data);
   }
 
   getPhases(id: any) {
   
-    return this.firestore.collection("ET_Reminders/" + id + "/Phases").get();
+    return this.firestore.collection("Health_App/" + id + "/Phases").get();
   }
 
   deletePhase(settingId: any, id: any) {
-    return this.firestore.collection("ET_Reminders/" + settingId + "/Phases").doc(id).delete();
+    return this.firestore.collection("Health_App/" + settingId + "/Phases").doc(id).delete();
 
   }
 
 
   deleteTemplates(settingId: any, id: any) {
    
-    return this.firestore.collection("ET_Reminders/" + settingId + "/Templates").doc(id).delete();
+    return this.firestore.collection("Health_App/" + settingId + "/Templates").doc(id).delete();
   }
 
   updateTemplates(settingId: any, id: any, data: any) {
 
-    return this.firestore.collection("ET_Reminders/" + settingId + "/Templates").doc(id).set(data);
+    return this.firestore.collection("Health_App/" + settingId + "/Templates").doc(id).set(data);
   }
 
   updatePhases(settingId: any, id: any, data: any) {
 
-    return this.firestore.collection("ET_Reminders/" + settingId + "/Phases").doc(id).set(data);
+    return this.firestore.collection("Health_App/" + settingId + "/Phases").doc(id).set(data);
   }
 
 

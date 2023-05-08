@@ -12,17 +12,22 @@ import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-new-customer',
-  templateUrl: './new-customer.component.html',
-  styleUrls: ['./new-customer.component.scss']
+  templateUrl: './new-professional.component.html',
+  styleUrls: ['./new-professional.component.scss']
 })
 
-export class NewCustomerComponent {
+export class NewProfessionalComponent {
   isSubmitting=false;
 
 
   customerRegisterForm = this.fb.group({
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
+    qualification: [null, Validators.required],
+    fieldOfStudy: [null, Validators.required],
+    experience: [null, Validators.required],
+    workPlace: [null, Validators.required],
+    address: [null, Validators.required],
     email: [null,  [Validators.email]],
     gender: [null, Validators.required],
     phone: [      '',      [
@@ -50,15 +55,17 @@ export class NewCustomerComponent {
 
     if(!this.isSubmitting){
     if (this.customerRegisterForm.valid) {
+      console.log(customerData);
       this.isSubmitting=true;
       let data=customerData
 
       this.authfire.authState.subscribe((res)=>{
        let uid= res?.uid
 
-     
+        console.log("First we got this uid",uid)
         this.customerServices.getSingleCustomer(res?.uid).subscribe((response) => {
           let user: any = response.data()
+          console.log("Then we get this user companyid",user.companyId)
           this.customerServices.getSingleSetting(user.companyId).subscribe((results) => {
 
             results.docs.forEach(docs => {
@@ -66,7 +73,7 @@ export class NewCustomerComponent {
               settingData.count=settingData.count+1
               data['id']=settingData.count
 
-
+              console.log("After we get the id we will add now to db",settingData.count)
                     this.customerServices.addNewCustomer(data).then(
         
          async (res) => {
@@ -76,7 +83,7 @@ export class NewCustomerComponent {
               'New Customer Registered Successfully.','Operation Completed!'
             );
             
-            this.route.navigate(['/customers-list']);
+            this.route.navigate(['/professional-list']);
               this.isSubmitting=false;
         }
        

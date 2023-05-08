@@ -2,67 +2,47 @@
   <mat-card-content>
     <div class="fade show" style="text-align: center; padding-top: calc(100vh / 3); height: 70vh">
       <i class="spinner-grow spinner-grow-sm"></i><br><br>
-      <span class="m-1">Loading Customers Data...</span>
+      <span class="m-1">Loading Professionals Data...</span>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card class="shadow-xl drop-shadow-xl overflow-hidden z-10 mr-1 ml-1 mt-2 mb-0 h-full bg-white relative text-[14px] customers"
   *ngIf="!isLoading">
+  <!-- <mat-card
+  class="shadow-xl drop-shadow-xl overflow-hidden z-10 mr-3 ml-3 mt-2 pb-3 min-h-[78vh] max-h-full bg-white"
+  *ngIf="!isLoading"
+> -->
+<mat-card-header class="flex items-center justify-content-between">
+  <mat-card-title class="text-xl w-full ">Professionals List 
+    <button [disabled]="this.selection.selected.length<=0" mat-button type="submit"
+              class="addBtn shadow-md drop-shadow-lg ml-1" (click)="openDialog()"> <mat-icon matSuffix>sms</mat-icon>
+              Send</button>     
+   </mat-card-title>
+   <div class="w-full sm:w-1/3">
+    
+    <mat-form-field appearance="outline" class="w-full">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search For Professionals" #input>
+    </mat-form-field>
+
+  </div>
+</mat-card-header>
   <mat-card-content>
 
-    <div class="flex searchSection">
+    <!-- <div class="flex searchSection">
       <div class="w-full sm:w-1/4 pageTitleSection mb-4 sm:mb-0 flex ">
-        <!-- <h1>Customers List</h1> -->
-        <button [disabled]="this.selection.selected.length<=0" mat-button type="submit"
-          class="addBtn shadow-md drop-shadow-lg" (click)="openDialog()"> <mat-icon matSuffix>sms</mat-icon>
-          Send</button>
+        <h1>Customers List</h1>
 
       </div>
-      <div class="w-full sm:w-3/4 sm:pr-2 searchTab">
+      <div class="w-full sm:w-3/4 searchTab">
         <div class="flex  w-full">
           <div class="mb-1 xl:w-full">
-            <div class="input-group relative flex items-stretch w-full flex ">
-              <div class="w-full sm:w-1/3 relative sm:pr-2">
-                <mat-form-field appearance="outline">
-                  <mat-select placeholder="Select Status" (selectionChange)="filterPhaseChange($event)" #phaseSelector>
-                    <!-- <mat-option selected disabled>Select Phase</mat-option> -->
-                    <mat-option value="male" *ngFor="let options of phases" [value]="options?.phaseTitle">
-                      {{options?.phaseTitle}} </mat-option>
-                    <mat-option value="-">No Status</mat-option>
-                    <mat-option value="_ALL" selected>All Status</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-
-              <div class="w-full sm:w-1/3 sm:pr-2 relative">
-                <mat-form-field appearance="outline" class="w-full flex">
-                  <mat-date-range-input [rangePicker]="rangePicker" [formGroup]="range">
-                    <input matStartDate placeholder="Start date" formControlName="start"
-                      (keyup)="filterDateChange(startDate.value,endDate.value)" #startDate>
-                    <input matEndDate placeholder="End date" formControlName="start"
-                      (keyup)="filterDateChange(startDate.value,endDate.value)" #endDate>
-
-                  </mat-date-range-input>
-
-
-                  <mat-datepicker-toggle matIconSuffix [for]="rangePicker" class="relative top-[-8px]"></mat-datepicker-toggle>
-                  <mat-date-range-picker #rangePicker>
-                    <mat-date-range-picker-actions>
-                      <button mat-button matDateRangePickerCancel>Cancel</button>
-                      <button mat-raised-button color="primary" matDateRangePickerApply
-                        (click)="filterDateChange(startDate.value,endDate.value)">Apply</button>
-                    </mat-date-range-picker-actions>
-
-                  </mat-date-range-picker>
-                </mat-form-field>
-                <mat-icon matDatepickerToggleIcon
-                  class="w-2 h-2 hover:text-red-400 absolute right-[45px] top-[5px] rounded-full cursor-pointer"
-                  (click)="clearDate(phaseSelector)">clear</mat-icon>
-              </div>
-
-
-
+            <div class="flex items-end w-full flex ">
+              <div class="w-full sm:w-1/3">
+              <button [disabled]="this.selection.selected.length<=0" mat-button type="submit"
+              class="addBtn shadow-md drop-shadow-lg" (click)="openDialog()"> <mat-icon matSuffix>sms</mat-icon>
+              Send</button>
+            </div>
               <div class="w-full sm:w-1/3">
                 <mat-form-field appearance="outline" class="w-full">
                   <input matInput (keyup)="applyFilter($event)" placeholder="Search For Customers" #input>
@@ -73,7 +53,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+
     <div class="tableContent mb-4">
       <table mat-table [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
         <ng-container matColumnDef="select">
@@ -121,17 +103,45 @@
           <td mat-cell *matCellDef="let row">{{ '+251'+row.phone }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-          <td mat-cell *matCellDef="let row">{{ row.phase?row.phase:'-' }}</td>
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+          <td mat-cell *matCellDef="let row">{{ row.gender?row.gender:'-' }}</td>
         </ng-container>
 
 
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Appointment Date</th>
-          <td mat-cell *matCellDef="let row">{{ row.date?row.date:'-' }}</td>
+        <ng-container matColumnDef="qualification">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Qualification</th>
+          <td mat-cell *matCellDef="let row">{{ row.qualification?row.qualification:'-' }}</td>
         </ng-container>
 
+        <ng-container matColumnDef="fieldOfStudy">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Field of Study</th>
+          <td mat-cell *matCellDef="let row">{{ row.fieldOfStudy?row.fieldOfStudy:'-' }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Experience</th>
+          <td mat-cell *matCellDef="let row">{{ row.experience?row.experience:'-' }} Years</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="workPlace">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Place of Work</th>
+          <td mat-cell *matCellDef="let row">{{ row.workPlace?row.workPlace:'-' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Living Address</th>
+          <td mat-cell *matCellDef="let row">{{ row.address?row.address:'-' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email Address</th>
+          <td mat-cell *matCellDef="let row">{{ row.email?row.email:'-' }}</td>
+        </ng-container>
+
+<!-- 
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Options</th>
           <td mat-cell *matCellDef="let row">
@@ -155,7 +165,7 @@
             
             </div>
           </td>
-        </ng-container>
+        </ng-container> -->
 
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

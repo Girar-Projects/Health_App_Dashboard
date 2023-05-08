@@ -58,7 +58,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
-import { NewCustomerComponent } from './dashboard/customers/new-customer/new-customer.component';
+import { NewProfessionalComponent } from './dashboard/customers/new-professional/new-professional.component';
+import { NewOrganizationComponent } from './dashboard/customers/new-organization/new-organization.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomersService } from './shared/services/customers.service';
@@ -80,8 +81,10 @@ import { SetAppointmentComponent } from './dashboard/customers/set-appointment/s
 import { ProfileDetailComponent } from './pages/profile-detail/profile-detail.component';
 import { EditTemplateComponent } from './preference/templates-list/edit-template/edit-template.component';
 import { EditPhaseComponent } from './preference/phases-list/edit-phase/edit-phase.component';
-import { EditCustomerComponent } from './dashboard/customers/edit-customer/edit-customer.component';
-
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { EditOrganizationComponent } from './dashboard/customers/edit-organization/edit-organization.component';
+import { EditProfessionalComponent } from './dashboard/customers/edit-professional/edit-professional.component';
+import { OrganizationsListComponent } from './dashboard/organizations-list/organizations-list.component';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
@@ -100,7 +103,8 @@ const APP_CONTAINERS = [
     ForgotPasswordComponent,
     ...APP_CONTAINERS,
     CustomersComponent,
-    NewCustomerComponent,
+    NewProfessionalComponent,
+    NewOrganizationComponent,
     SendMessageComponent,
     SelectUsersListComponent,
     PreferenceComponent,
@@ -113,7 +117,9 @@ const APP_CONTAINERS = [
     ProfileDetailComponent,
     EditTemplateComponent,
     EditPhaseComponent,
-    EditCustomerComponent,
+    EditProfessionalComponent,
+    EditOrganizationComponent,
+    OrganizationsListComponent,
   ],
 
   imports: [
@@ -136,6 +142,7 @@ const APP_CONTAINERS = [
     ReactiveFormsModule,
     SidebarModule,
     FormsModule,
+    LoadingBarRouterModule,
     SharedModule,
     TabsModule,
     ListGroupModule,

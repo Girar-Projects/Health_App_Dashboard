@@ -63,10 +63,10 @@ export class SetAppointmentComponent implements OnInit{
   
   }
 
-  setAppointement(customer:any,phase:any,date:any){
+  setAppointement(customer:any,phase:any,date:any,assignProfessionals:any){
     let datas=customer;
     datas.phase=phase;
-    
+    datas['assigned']=assignProfessionals;
     datas.date=date;
     this.authService.castUser.subscribe((result)=>{
       this.setting=result;
@@ -78,7 +78,7 @@ export class SetAppointmentComponent implements OnInit{
             res.docs.forEach(doc=>{
               this.setting=result;
             
-             
+             // 'Something Went Wrong','Operation Failed!'
               this.customerServices.updateMember(data.companyId,customer.uid,datas).then((res)=>{
                 this.toaster.info(
       
@@ -88,7 +88,7 @@ export class SetAppointmentComponent implements OnInit{
               }).catch((error)=>{
                 this.toaster.error(
       
-                  'Something Went Wrong','Operation Failed!'
+                 error.error,'error'
                 );
               })
             

@@ -9,7 +9,7 @@ import { ToasterService } from './shared/services/toaster.service';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  template: ' <ngx-loading-bar></ngx-loading-bar><router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
   title = 'Reminder ET';

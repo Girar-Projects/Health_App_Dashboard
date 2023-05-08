@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
-  selector: 'app-edit-customer',
-  templateUrl: './edit-customer.component.html',
-  styleUrls: ['./edit-customer.component.scss']
+  selector: 'app-edit-organization',
+  templateUrl: './edit-organization.component.html',
+  styleUrls: ['./edit-organization.component.scss']
 })
-export class EditCustomerComponent {
+export class EditOrganizationComponent {
 
   isSubmitting=false;
 
@@ -47,7 +47,7 @@ status=false;
   public dialog: MatDialog,
   public router:Router,
    public toaster: ToasterService,
-   public dialogRef: MatDialogRef<EditCustomerComponent >
+   public dialogRef: MatDialogRef<EditOrganizationComponent >
 ) {
  
 }
@@ -132,7 +132,7 @@ onSubmit(customer:any){
           
               
               this.router.navigate(['/']).then(()=>{
-                this.router.navigate(['/customers-list'])
+                this.router.navigate(['/professional-list'])
               });
             }).catch((error)=>{
               console.log(error)

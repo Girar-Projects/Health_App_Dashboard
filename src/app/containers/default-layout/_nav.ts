@@ -17,10 +17,17 @@ export const navItems: INavData[] = [
  
 
   {
-    name: 'Customers',
-    url: '/customers-list',
+    name: 'Professionals List',
+    url: '/professional-list', 
     iconComponent: { name: 'cilUserFollow' }
   },
+
+  {
+    name: 'Recruitment Requests',
+    url: '/recruiters-list',
+    iconComponent: { name: 'cilList' }
+  },
+
   {
     name: 'Messages Log',
     url: '/reminders',

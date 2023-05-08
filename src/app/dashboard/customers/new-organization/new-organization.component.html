@@ -1,0 +1,306 @@
+<form [formGroup]="customerRegisterForm" novalidate (ngSubmit)="onSubmit(customerRegisterForm.value)">
+    <!-- <div class="w-full pl-12 pr-12 mt-1 pb-2"> -->
+      <mat-card class=" h-full shadow-2xl mt-3 drop-shadow-2xl bg-white pb-3 pt-1">
+        <mat-card-header class="flex items-center justify-center mb-2">
+          <mat-card-title class="text-2xl">New Recruits Request</mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          class="w-full mt-2 cardContent h-full shadow-none"
+          style="display: flex;justify-content: center;"
+        >
+          <div class="w-full md:ml-12 md:mr-12 mt-2 md:px-12 leftInputSection">
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Organization Name </mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter Organization Name"
+                    formControlName="orgName"
+                  />
+                   <mat-error class="float-right letter  " class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['orgName'].hasError('required')
+                    "
+                  >
+                  Organization name is <strong>required</strong>
+                  </mat-error>
+                 
+                </mat-form-field>
+              </div>
+            </div> 
+          
+
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Organization Type </mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter Organization Type"
+                    formControlName="orgType"
+                  />
+                   <mat-error class="float-right letter  " class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['orgType'].hasError('required')
+                    "
+                  >
+                  Organization type is <strong>required</strong>
+                  </mat-error>
+                 
+                </mat-form-field>
+              </div>
+            </div> 
+
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Type Of Professionals needed </mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter Type of Professionals needed"
+                    formControlName="typeOfProfessional"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['typeOfProfessional'].hasError('required')
+                    "
+                  >
+                  Type Of Professionals is <strong>required</strong>
+                  </mat-error>
+                  <!-- <mat-error
+                  class="float-right letter "
+                  *ngIf="customerRegisterForm.controls['lastName'].hasError('pattern')"
+                >
+                Last name can only contain <strong>letters</strong>
+                </mat-error> -->
+                </mat-form-field>
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Minimum experience (in Years)</mat-label>
+                  <input
+                  type="number"
+                  min="0"
+                    matInput
+                    placeholder="Experience Years"
+                    formControlName="experience"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['experience'].hasError('required')
+                    "
+                  >
+                  Experience is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col">
+                  <mat-form-field class="full-width">
+                    <mat-label> Gender  </mat-label>
+                    <mat-select
+                      placeholder="Select Gender"
+                      formControlName="gender"
+                    >
+                    <mat-option value="All" selected > Any  </mat-option>
+                      <mat-option value="Male" > Male only </mat-option>
+                      <mat-option value="Female"> Female only </mat-option>
+                    </mat-select>
+                     <mat-error class="float-right letter  "
+                      *ngIf="
+                        customerRegisterForm.controls['gender'].hasError('required')
+                      "
+                    >
+                      Gender is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Number of Professionals Needed </mat-label>
+                  <input
+                  type="number"
+                  min="1"
+                    matInput
+                    placeholder="Enter Number of Professionals Required"
+                    formControlName="totalNeeded"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['totalNeeded'].hasError('required')
+                    "
+                  >
+                  Number of Professionals is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+
+   
+
+            
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Place Of Work </mat-label>
+                  <input
+                    matInput
+                    placeholder="Place Of Work"
+                    formControlName="workPlace"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['workPlace'].hasError('required')
+                    "
+                  >
+                  Place Of Work is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>TIN NUMBER </mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter Tin number"
+                    formControlName="tinNumber"
+                  />
+                   <mat-error class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['tinNumber'].hasError('required')
+                    "
+                  >
+                  TIN NUMBER is <strong>required</strong>
+                  </mat-error>
+               
+                </mat-form-field>
+              </div>
+            </div>
+            
+
+
+
+            <div class="row mb-3">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-label>Contact Person Full Name </mat-label>
+                  <input
+                    matInput
+                    placeholder="Full Name"
+                    formControlName="fullName"
+                  />
+                   <mat-error class="float-right letter  " class="float-right letter  "
+                    *ngIf="
+                      customerRegisterForm.controls['fullName'].hasError('required')
+                    "
+                  >
+                  Contact Person name is <strong>required</strong>
+                  </mat-error>
+                  <mat-error
+                  class="float-right letter "
+                  *ngIf="customerRegisterForm.controls['fullName'].hasError('pattern')"
+                >
+                Contact Person name can only contain <strong>letters</strong>
+                </mat-error>
+                </mat-form-field>
+              </div>
+            </div> 
+          
+            <div class="row mb-3">
+              <div class="col">
+              
+                <mat-form-field class="full-width">
+                    <mat-label>Phone </mat-label>
+                    <span matPrefix>&nbsp;&nbsp;+251 &nbsp;  </span>
+                    <input
+                      type="tel"
+                      maxlength="9"
+                      formControlName="phone"
+                      matInput
+                      placeholder="911-123-4567"
+                    />
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error
+                      class="float-right letter  "
+                      *ngIf="customerRegisterForm.controls['phone'].hasError('required')"
+                    >
+                      Phone Number is <strong>required</strong>
+                    </mat-error>
+                    <mat-error
+                      class="float-right letter"
+                      *ngIf="
+                      customerRegisterForm.controls['phone'].hasError('minlength') ||
+                        (customerRegisterForm.controls['phone'].hasError('maxlength') &&
+                          !customerRegisterForm.controls['phone'].hasError('pattern'))
+                      "
+                    >
+                      Phone Number length is
+                      <strong>invalid</strong>
+                    </mat-error>
+                    <mat-error
+                      class="float-right letter  "
+                      *ngIf="customerRegisterForm.controls['phone'].hasError('pattern')"
+                    >
+                      Phone Number can only Contain
+                      <strong>Numbers </strong>
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+            </div>
+     
+         <div class="row mb-3">
+              <div class="col">
+              
+                <mat-form-field class="full-width">
+                    <mat-label>Email (Optional)</mat-label>
+                    <input
+                      type="email"
+                      matInput
+                      formControlName="email"
+                      placeholder="Ex. someone@example.com"
+                    />
+                    <mat-error
+                      class="float-right letter  "
+                      *ngIf="customerRegisterForm.controls['email'].hasError('email')"
+                    >
+                      Email must be <strong>valid</strong>
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+            </div>
+
+          
+          </div>
+        </mat-card-content>
+        <mat-card-actions
+          class="w-full mt-2 shadow-none flex justify-center items-center"
+        >
+          <button mat-raised-button color="primary" type="submit">
+            <div class="flex">
+              <div class="relative bottom-[1px] mr-1" *ngIf="isSubmitting">
+                <img src="/assets/img/menuLoading.svg" alt="" width="20px" />
+              </div>
+              <div>Add Request</div>
+            </div>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    <!-- </div> -->
+  </form>
